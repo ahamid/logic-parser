@@ -1,7 +1,9 @@
-/* description: Parses end executes mathematical expressions. */
+/* description: Parses simple propositional logic expresssions. */
 
 /* lexical grammar */
 %lex
+
+%options case-insensitive
 
 %%
 

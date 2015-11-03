@@ -587,7 +587,7 @@ pushState:function pushState(condition) {
 stateStackSize:function stateStackSize() {
         return this.conditionStack.length;
     },
-options: {},
+options: {"case-insensitive":true},
 performAction: function anonymous(yy,yy_,$avoiding_name_collisions,YY_START) {
 var YYSTATE=YY_START;
 switch($avoiding_name_collisions) {
@@ -613,7 +613,7 @@ case 9:return 'INVALID'
 break;
 }
 },
-rules: [/^(?:\s+)/,/^(?:and\b)/,/^(?:or\b)/,/^(?:not\b)/,/^(?:\()/,/^(?:\))/,/^(?:[^"\s()]+)/,/^(?:"[^"]+")/,/^(?:$)/,/^(?:.)/],
+rules: [/^(?:\s+)/i,/^(?:and\b)/i,/^(?:or\b)/i,/^(?:not\b)/i,/^(?:\()/i,/^(?:\))/i,/^(?:[^"\s()]+)/i,/^(?:"[^"]+")/i,/^(?:$)/i,/^(?:.)/i],
 conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9],"inclusive":true}}
 });
 return lexer;
