@@ -607,7 +607,7 @@ case 5:return 13
 break;
 case 6:return 7
 break;
-case 7:yy_.yytext = yy_.yytext.slice(1,-1); return 'TEXT'
+case 7:yy_.yytext = yy_.yytext.slice(1,-1); return 7
 break;
 case 8:return 5
 break;

@@ -14,7 +14,7 @@
 "("                   return '('
 ")"                   return ')'
 [^"\s()]+             return 'STRING'
-\"[^"]+\"             yytext = yytext.slice(1,-1); return 'TEXT'
+\"[^"]+\"             yytext = yytext.slice(1,-1); return 'STRING'
 <<EOF>>               return 'EOF'
 .                     return 'INVALID'
 
