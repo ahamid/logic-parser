@@ -1,0 +1,28 @@
+{
+  "name": "logic-parser",
+  "version": "0.0.1",
+  "description": "a simple parser for propositional logic expressions",
+  "main": "index.js",
+  "scripts": {
+    "build": "jison -o index.js -m amd logic-parser.jison",
+    "prepublish": "npm run build",
+    "test": "NODE_ENV=test mocha test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahamid/logic-parser.git"
+  },
+  "keywords": [
+    "propositional",
+    "boolean",
+    "logic",
+    "parser",
+    "jison"
+  ],
+  "author": "Aaron Hamid <aaron.hamid@gmail.com> (https://github.com/ahamid)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ahamid/logic-parser/issues"
+  },
+  "homepage": "https://github.com/ahamid/logic-parser#readme"
+}

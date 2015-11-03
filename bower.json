@@ -1,0 +1,28 @@
+{
+  "name": "logic-parser",
+  "description": "a simple parser for propositional logic expressions",
+  "main": "index.js",
+  "authors": [
+    "Aaron Hamid <aaron.hamid@gmail.com> (https://github.com/ahamid)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "propositional",
+    "boolean",
+    "logic",
+    "parser",
+    "jison"
+  ],
+  "homepage": "https://github.com/ahamid/logic-parser",
+  "moduleType": [
+    "amd"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
