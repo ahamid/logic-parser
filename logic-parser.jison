@@ -31,7 +31,7 @@
 
 expressions
     : e EOF
-        { console.log(JSON.stringify($1, null, 2)); return $1;}
+        { return $1;}
     ;
 
 string
