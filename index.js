@@ -73,39 +73,42 @@
   }
 */
 var parser = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,3],$V1=[1,4],$V2=[1,5],$V3=[1,7],$V4=[1,8],$V5=[5,6,7,10];
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,7],$V1=[1,3],$V2=[1,4],$V3=[1,9],$V4=[1,10],$V5=[5,9,10,13],$V6=[5,7,9,10,13];
 var parser = {trace: function trace() { },
 yy: {},
-symbols_: {"error":2,"expressions":3,"e":4,"EOF":5,"and":6,"or":7,"not":8,"(":9,")":10,"TEXT":11,"$accept":0,"$end":1},
-terminals_: {2:"error",5:"EOF",6:"and",7:"or",8:"not",9:"(",10:")",11:"TEXT"},
-productions_: [0,[3,2],[4,3],[4,3],[4,2],[4,3],[4,1]],
+symbols_: {"error":2,"expressions":3,"e":4,"EOF":5,"string":6,"STRING":7,"strings":8,"and":9,"or":10,"not":11,"(":12,")":13,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",7:"STRING",9:"and",10:"or",11:"not",12:"(",13:")"},
+productions_: [0,[3,2],[6,1],[8,1],[8,2],[4,3],[4,3],[4,2],[4,3],[4,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
 var $0 = $$.length - 1;
 switch (yystate) {
 case 1:
- return $$[$0-1];
+ console.log(JSON.stringify($$[$0-1], null, 2)); return $$[$0-1];
 break;
 case 2:
-this.$ = mergeCondition($$[$0-2], $$[$0], 'and');
-break;
-case 3:
-this.$ = mergeCondition($$[$0-2], $$[$0], 'or');
+this.$ = { type: 'string', value: yytext };
 break;
 case 4:
-this.$ = { type: 'not', value: $$[$0] };
+this.$ = mergeCondition($$[$0-1], $$[$0], 'and');
 break;
 case 5:
-this.$ = $$[$0-1];
+this.$ = mergeCondition($$[$0-2], $$[$0], 'and');
 break;
 case 6:
-this.$ = { type: 'string', value: yytext };
+this.$ = mergeCondition($$[$0-2], $$[$0], 'or');
+break;
+case 7:
+this.$ = { type: 'not', value: $$[$0] };
+break;
+case 8:
+this.$ = $$[$0-1];
 break;
 }
 },
-table: [{3:1,4:2,8:$V0,9:$V1,11:$V2},{1:[3]},{5:[1,6],6:$V3,7:$V4},{4:9,8:$V0,9:$V1,11:$V2},{4:10,8:$V0,9:$V1,11:$V2},o($V5,[2,6]),{1:[2,1]},{4:11,8:$V0,9:$V1,11:$V2},{4:12,8:$V0,9:$V1,11:$V2},o($V5,[2,4]),{6:$V3,7:$V4,10:[1,13]},o($V5,[2,2]),o([5,7,10],[2,3],{6:$V3}),o($V5,[2,5])],
-defaultActions: {6:[2,1]},
+table: [{3:1,4:2,6:6,7:$V0,8:5,11:$V1,12:$V2},{1:[3]},{5:[1,8],9:$V3,10:$V4},{4:11,6:6,7:$V0,8:5,11:$V1,12:$V2},{4:12,6:6,7:$V0,8:5,11:$V1,12:$V2},o($V5,[2,9],{6:13,7:$V0}),o($V6,[2,3]),o($V6,[2,2]),{1:[2,1]},{4:14,6:6,7:$V0,8:5,11:$V1,12:$V2},{4:15,6:6,7:$V0,8:5,11:$V1,12:$V2},o($V5,[2,7]),{9:$V3,10:$V4,13:[1,16]},o($V6,[2,4]),o($V5,[2,5]),o([5,10,13],[2,6],{9:$V3}),o($V5,[2,8])],
+defaultActions: {8:[2,1]},
 parseError: function parseError(str, hash) {
     if (hash.recoverable) {
         this.trace(str);
@@ -593,19 +596,19 @@ var YYSTATE=YY_START;
 switch($avoiding_name_collisions) {
 case 0:/* skip whitespace */
 break;
-case 1:return 6
+case 1:return 9
 break;
-case 2:return 7
+case 2:return 10
 break;
-case 3:return 8
+case 3:return 11
 break;
-case 4:return 9
+case 4:return 12
 break;
-case 5:return 10
+case 5:return 13
 break;
-case 6:return 11
+case 6:return 7
 break;
-case 7:yy_.yytext = yy_.yytext.slice(1,-1); return 11
+case 7:yy_.yytext = yy_.yytext.slice(1,-1); return 'TEXT'
 break;
 case 8:return 5
 break;

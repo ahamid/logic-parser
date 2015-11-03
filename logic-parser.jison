@@ -13,7 +13,7 @@
 "not"                 return 'not'
 "("                   return '('
 ")"                   return ')'
-[^"\s()]+             return 'TEXT'
+[^"\s()]+             return 'STRING'
 \"[^"]+\"             yytext = yytext.slice(1,-1); return 'TEXT'
 <<EOF>>               return 'EOF'
 .                     return 'INVALID'
@@ -31,15 +31,23 @@
 
 expressions
     : e EOF
-        { return $1;}
+        { console.log(JSON.stringify($1, null, 2)); return $1;}
     ;
 
+string
+    : STRING {$$ = { type: 'string', value: yytext };}
+    ;
+
+strings
+    : string
+    | strings string {$$ = mergeCondition($1, $2, 'and');}
+    ;
 e
     : e 'and' e  {$$ = mergeCondition($1, $3, 'and');}
     | e 'or' e   {$$ = mergeCondition($1, $3, 'or');}
     | 'not' e    {$$ = { type: 'not', value: $2 };}
     | '(' e ')'  {$$ = $2;}
-    | TEXT       {$$ = { type: 'string', value: yytext };}
+    | strings
     ;
 %%
 
