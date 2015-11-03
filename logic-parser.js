@@ -99,7 +99,7 @@ case 5:
 this.$ = $$[$0-1];
 break;
 case 6:
-this.$ = yytext;
+this.$ = { type: 'string', value: yytext };
 break;
 }
 },

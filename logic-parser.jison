@@ -37,7 +37,7 @@ e
     | e 'or' e   {$$ = mergeCondition($1, $3, 'or');}
     | 'not' e    {$$ = { type: 'not', value: $2 };}
     | '(' e ')'  {$$ = $2;}
-    | TEXT       {$$ = yytext;}
+    | TEXT       {$$ = { type: 'string', value: yytext };}
     ;
 %%
 
