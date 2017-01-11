@@ -1,10 +1,10 @@
 {
   "name": "logic-parser",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a simple parser for propositional logic expressions",
   "main": "index.js",
   "scripts": {
-    "build": "jison logic-parser.jison -m js -o index.js",
+    "build": "jison logic-parser.jison -o index.js",
     "prepublish": "npm run build",
     "test": "NODE_ENV=test mocha test/"
   },
